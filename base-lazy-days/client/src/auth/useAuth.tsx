@@ -26,22 +26,19 @@ export function useAuth(): UseAuth {
     password: string,
   ): Promise<void> {
     try {
-      const {
-        data,
-        status,
-      }: AxiosResponse<AuthResponseType> = await axiosInstance({
-        url: urlEndpoint,
-        method: 'POST',
-        data: { email, password },
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const { data, status }: AxiosResponse<AuthResponseType> =
+        await axiosInstance({
+          url: urlEndpoint,
+          method: 'POST',
+          data: { email, password },
+          headers: { 'Content-Type': 'application/json' },
+        });
 
       if (status === 400) {
         const title = 'message' in data ? data.message : 'Unauthorized';
         toast({ title, status: 'warning' });
         return;
       }
-
       if ('user' in data && 'token' in data.user) {
         toast({
           title: `Logged in as ${data.user.email}`,

@@ -3,7 +3,6 @@
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
-    "baseUrl": "src",
     "esModuleInterop": true,
     "sourceMap": true,
     "emitDecoratorMetadata": true,

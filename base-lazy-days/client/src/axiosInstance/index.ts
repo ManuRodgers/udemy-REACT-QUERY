@@ -5,6 +5,7 @@ import { baseUrl } from './constants';
 
 interface jwtHeader {
   Authorization?: string;
+  [key: string]: string;
 }
 
 export function getJWTHeader(user: User): jwtHeader {

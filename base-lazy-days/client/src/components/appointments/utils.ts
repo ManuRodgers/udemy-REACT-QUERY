@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 
 import type { Appointment, AppointmentDateMap } from '../../../../shared/types';
+import { User } from '../../../../shared/types';
 
 export function appointmentInPast(appointmentData: Appointment): boolean {
   const now = dayjs();
@@ -34,15 +35,17 @@ export function getAppointmentColor(
 
 export function getAvailableAppointments(
   appointments: AppointmentDateMap,
+  user: User | null,
 ): AppointmentDateMap {
-  // clone so as not to mutate argument directly
+  //  clone the appointments object so we don't mutate the original
   const filteredAppointments = { ...appointments };
-
+  // only keep appointments that are not taken or taken by the logged-in user and are in the future
   Object.keys(filteredAppointments).forEach((date) => {
     filteredAppointments[date] = filteredAppointments[date].filter(
-      (appointment: Appointment) => !appointment.userId,
+      (appointment: Appointment) =>
+        (!appointment.userId || appointment.userId === user?.id) &&
+        !appointmentInPast(appointment),
     );
   });
-
   return filteredAppointments;
 }

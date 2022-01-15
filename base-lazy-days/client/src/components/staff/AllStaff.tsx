@@ -2,6 +2,7 @@ import { Box, Heading, HStack, Radio, RadioGroup } from '@chakra-ui/react';
 import { ReactElement } from 'react';
 
 import { useTreatments } from '../treatments/hooks/useTreatments';
+import { TreatmentNames } from '../treatments/types';
 import { useStaff } from './hooks/useStaff';
 import { Staff } from './Staff';
 
@@ -20,7 +21,12 @@ export function AllStaff(): ReactElement {
           <Staff key={staffData.id} staffData={staffData} />
         ))}
       </HStack>
-      <RadioGroup onChange={setFilter} value={filter}>
+      <RadioGroup
+        onChange={(value) => {
+          setFilter(value as TreatmentNames);
+        }}
+        value={filter}
+      >
         <HStack my={10} spacing={8} justify="center">
           <Heading size="md">Filter by treatment:</Heading>
           <Radio value="all">All</Radio>

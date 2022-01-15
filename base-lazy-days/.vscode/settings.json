@@ -1,0 +1,23 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#089dcc",
+    "activityBar.activeBorder": "#fdc2ee",
+    "activityBar.background": "#089dcc",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#fdc2ee",
+    "activityBarBadge.foreground": "#15202b",
+    "sash.hoverBorder": "#089dcc",
+    "statusBar.background": "#06779b",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#089dcc",
+    "statusBarItem.remoteBackground": "#06779b",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#06779b",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#06779b99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#06779b",
+  "cSpell.words": ["chakra"]
+}
